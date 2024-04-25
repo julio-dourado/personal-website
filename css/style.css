@@ -8,19 +8,28 @@
     font-family: "Nunito", sans-serif;
     font-optical-sizing: auto;
     font-weight: 600;
-  }
+}
 
 .poppins-regular {
     font-family: "Poppins", sans-serif;
     font-weight: 400;
     font-style: normal;
 }
-  
+
 .poppins-medium {
     font-family: "Poppins", sans-serif;
     font-weight: 500;
     font-style: normal;
 }
+
+.shadow-home-content-card {
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.shadow-home-content-card-green {
+    box-shadow: 0px 23px 30px rgba(171, 236, 214, 0.2);
+}
+
 
 body {
     font-family: "Poppins", sans-serif;
@@ -46,7 +55,8 @@ ul {
     justify-content: center;
     margin-top: 40px;
     list-style: none;
-    gap: 820px; /* Define um valor padrão em pixels */
+    gap: 820px;
+    /* Define um valor padrão em pixels */
 }
 
 li {
@@ -70,17 +80,22 @@ li {
 .menu-btn-with-image {
     background-image: url('../assets/Hamburguer.svg');
     background-color: inherit;
-    background-size: cover; /* ajusta a imagem ao tamanho do botão */
-    width: 30px; /* ajuste conforme necessário */
-    height: 30px; /* ajuste conforme necessário */
-    border: none; /* remove a borda padrão do botão */
-    cursor: pointer; /* altera o cursor quando hover */
-  }
-  
+    background-size: cover;
+    /* ajusta a imagem ao tamanho do botão */
+    width: 30px;
+    /* ajuste conforme necessário */
+    height: 30px;
+    /* ajuste conforme necessário */
+    border: none;
+    /* remove a borda padrão do botão */
+    cursor: pointer;
+    /* altera o cursor quando hover */
+}
+
 .options-menu {
     display: none;
 }
-  
+
 .show-menu {
     display: block;
 }
@@ -106,7 +121,7 @@ li {
 }
 
 .principal {
-    flex:80%;
+    flex: 80%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -141,6 +156,12 @@ li {
     position: relative;
 }
 
+.underline-ideias {
+    width: 140px;
+    margin-left: -138px;
+    margin-bottom: -10px;
+}
+
 .h1-image {
     width: 40px;
 }
@@ -165,18 +186,107 @@ li {
 .botao-2 {
     width: 130px;
     height: 37px;
-    background: none; /* Remove o fundo */
-    border: none; /* Remove a borda */
-    padding: 0; /* Remove o preenchimento */
-    cursor: pointer; /* Muda o cursor ao passar por cima */
+    background: none;
+    /* Remove o fundo */
+    border: none;
+    /* Remove a borda */
+    padding: 0;
+    /* Remove o preenchimento */
+    cursor: pointer;
+    /* Muda o cursor ao passar por cima */
     text-decoration: underline;
+}
+
+.ultimos-projetos {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.ultimos-projetos-content {
+    width: 1000px;
+}
+
+.h2-text {
+    display: flex;
+    flex-direction: column;
+    font-size: 44px;
+}
+
+.span-ultimos-projetos {
+    margin-top: -25px;
+}
+
+.content-cards-button {
+    margin-top: 50px;
+}
+
+.card-h3 {
+    font-size: 28px;
+}
+
+.tecnologias {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.blue {
+    background-color: #189FFF;
+    color: #FBFEFD;
+}
+
+.red {
+    background-color: #FF5C5C;
+    color: #FBFEFD;
+}
+
+.tecnologia {
+    display: inline-flex;
+    /* Usando inline-flex em vez de flex */
+    justify-content: center;
+    align-items: center;
+    border-radius: 32px;
+    padding: 0 15px;
+}
+
+.project-image {
+    width: 350px;
+    height: 270px;
+    border-radius: 18px;
+    margin-top: 20px;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
+}
+
+.github {
+    font-size: 20px;
+    color: #111827;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.vizualization {
+    display: flex;
+    flex-direction: row;
+    max-width: 350px;
+    margin-left: 20px;
+    gap: 20px;
+}
+
+.cards-content {
+    display: flex;
+    gap: 32px;
+    margin-top: 40px;
 }
 
 /* Path: css/responsive.css */
 
 @media screen and (max-width: 1200px) {
     ul {
-        gap: 574px; /* Aumenta o gap para 40 pixels */
+        gap: 574px;
+        /* Aumenta o gap para 40 pixels */
     }
 
     .home-content-card {
@@ -191,15 +301,33 @@ li {
     .h1-text-1 {
         font-size: 35px;
     }
-    
+
     .h1-text-2 {
         font-size: 40px;
+    }
+
+    .ultimos-projetos-content {
+        width: 744px;
+    }
+
+    .h2-text {
+        font-size: 38px;
+    }
+
+    .underline-ideias {
+        width: 130px;
+        margin-left: -125px;
+    }
+
+    .span-ultimos-projetos {
+        margin-top: -20px;
     }
 }
 
 @media screen and (max-width: 768px) {
     ul {
-        gap: 400px; /* Mantém o gap em 20 pixels */
+        gap: 400px;
+        /* Mantém o gap em 20 pixels */
     }
 
     .home-content-card {
@@ -214,15 +342,40 @@ li {
     .h1-text-1 {
         font-size: 30px;
     }
-    
+
     .h1-text-2 {
         font-size: 35px;
     }
+
+    .ultimos-projetos-content {
+        width: 570px;
+    }
+
+    .h2-text {
+        font-size: 34px;
+        align-items: center;
+    }
+
+    .underline-ideias {
+        width: 110px;
+        margin-left: -107px;
+    }
+
+    .span-ultimos-projetos {
+        margin-top: -18px;
+    }
+
+    .cards-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
 }
 
 @media screen and (max-width: 615px) {
     ul {
-        gap: 350px; /* Mantém o gap em 20 pixels */
+        gap: 350px;
+        /* Mantém o gap em 20 pixels */
     }
 
     .home-content-card {
@@ -237,15 +390,33 @@ li {
     .h1-text-1 {
         font-size: 25px;
     }
-    
+
     .h1-text-2 {
         font-size: 30px;
+    }
+
+    .ultimos-projetos-content {
+        width: 520px;
+    }
+
+    .h2-text {
+        font-size: 30px;
+    }
+
+    .underline-ideias {
+        width: 100px;
+        margin-left: -96px;
+    }
+
+    .span-ultimos-projetos {
+        margin-top: -15px;
     }
 }
 
 @media screen and (max-width: 480px) {
     ul {
-        gap: 200px; /* Reduz o gap para 10 pixels */
+        gap: 200px;
+        /* Reduz o gap para 10 pixels */
     }
 
     .home-content-card {
@@ -260,15 +431,33 @@ li {
     .h1-text-1 {
         font-size: 22px;
     }
-    
+
     .h1-text-2 {
         font-size: 25px;
+    }
+
+    .ultimos-projetos-content {
+        width: 370px;
+    }
+
+    .h2-text {
+        font-size: 30px;
+    }
+
+    .underline-ideias {
+        width: 80px;
+        margin-left: -78px;
+    }
+
+    .span-ultimos-projetos {
+        margin-top: -10px;
     }
 }
 
 @media screen and (max-width: 400px) {
     ul {
-        gap: 38vw; /* Reduz o gap para 10 pixels */
+        gap: 38vw;
+        /* Reduz o gap para 10 pixels */
     }
 
     .home-content-card {
@@ -279,12 +468,29 @@ li {
     .h1-image {
         width: 20px;
     }
-    
+
     .h1-text-1 {
         font-size: 18px;
     }
-    
+
     .h1-text-2 {
         font-size: 22px;
     }
-} 
+
+    .ultimos-projetos-content {
+        width: 320px;
+    }
+
+    .h2-text {
+        font-size: 28px;
+    }
+
+    .underline-ideias {
+        width: 70px;
+        margin-left: -70px;
+    }
+
+    .span-ultimos-projetos {
+        margin-top: -8px;
+    }
+}

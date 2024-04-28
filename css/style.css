@@ -220,7 +220,7 @@ li {
     margin-top: -25px;
 }
 
-.content-cards-button {
+.content-cards {
     margin-top: 10px;
 }
 
@@ -284,6 +284,7 @@ li {
     flex-wrap: wrap;
     gap: 32px;
     margin-top: 30px;
+    justify-content: center;
 }
 
 .card {
@@ -400,9 +401,9 @@ li {
         margin-top: -18px;
     }
 
-    .content-cards {
+    .card {
         display: flex;
-        flex-direction: column;
+        justify-content: center;
     }
 }
 

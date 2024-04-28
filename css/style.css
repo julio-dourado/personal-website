@@ -281,8 +281,13 @@ li {
 
 .cards-content {
     display: flex;
+    flex-wrap: wrap;
     gap: 32px;
     margin-top: 30px;
+}
+
+.card {
+    flex: 1 1;
 }
 
 .setas-cards {
@@ -352,11 +357,6 @@ li {
     .span-ultimos-projetos {
         margin-top: -20px;
     }
-
-    .cards-content {
-        flex-direction: column;
-        align-items: center;
-    }
 }
 
 @media screen and (max-width: 768px) {
@@ -400,12 +400,10 @@ li {
         margin-top: -18px;
     }
 
-    .cards-content {
+    .content-cards {
+        display: flex;
         flex-direction: column;
-        align-items: space-between;
-        flex-wrap: wrap;
     }
-
 }
 
 @media screen and (max-width: 615px) {

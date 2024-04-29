@@ -317,6 +317,14 @@ li {
     padding: 20px;
 }
 
+#arrow-2 {
+    width: 130px;
+    margin-right: -122px;
+    margin-left: -10px;
+    margin-bottom: -10px;
+
+}
+
 /* Path: css/responsive.css */
 
 @media screen and (max-width: 1200px) {

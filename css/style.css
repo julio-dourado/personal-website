@@ -329,6 +329,7 @@ li {
     display: flex;
     flex-direction: row-reverse;
     align-items: center;
+    gap: 10px;
 }
 
 .text-sobre-mim {
@@ -348,6 +349,44 @@ li {
 .p-sobre-mim {
     font-size: 22px;
 }
+
+.h3-sobremim {
+    font-size: 32px;
+}
+
+.texto-tecnologias {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+
+}
+
+.skills {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.tecnologia-sobre-mim-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+.tecnologia-sobre-mim {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    font-size: 28px;
+}
+
+.tecnologia-sobre-mim > img {
+    width: 125px;
+}
+
 
 /* Path: css/responsive.css */
 

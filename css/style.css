@@ -388,6 +388,96 @@ li {
 }
 
 
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 15px 15px 0 20px;
+    color: white;
+}
+
+.footer-content {
+    width: 100%;
+    height: 654px;
+    background-color: #111827;
+    border-radius: 48px 48px 0 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+
+}
+
+.p-footer-final {
+    flex: 0.2;
+    font-size: 12px;
+}
+
+.footer-conteudo {
+    display: flex;
+    flex-direction: row;
+    gap: 64px;
+    margin: 50px;
+    justify-content: space-between;
+
+    .footer-content-text {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        justify-content: space-around;
+    }
+
+    .titul-footer {
+        font-weight: 500;
+        font-size: 72px;
+        line-height: 1;
+    }
+    
+    .subtexto {
+        font-size: 28px;
+        line-height: 1;
+    }
+
+    .subtexto-2 {
+        font-size: 22px;
+        line-height: 1;
+    
+    }
+}
+
+.img-footer-content {
+    width: 100px;
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+    gap: 10px;
+
+}
+
+.img-footer {
+    width: 65px;
+}
+
+.hr-footer {
+    width: 315px;
+}
+
+.content-p-texto-final {
+    margin-top: 50px;
+}
+
+.p-footer-final {
+    font-size: 18px;
+   
+}
+
+.right-img {
+    width: 90%;
+}
+
 /* Path: css/responsive.css */
 
 @media screen and (max-width: 1200px) {

@@ -81,15 +81,10 @@ li {
     background-image: url('../assets/Hamburguer.svg');
     background-color: inherit;
     background-size: cover;
-    /* ajusta a imagem ao tamanho do botão */
     width: 30px;
-    /* ajuste conforme necessário */
     height: 30px;
-    /* ajuste conforme necessário */
     border: none;
-    /* remove a borda padrão do botão */
     cursor: pointer;
-    /* altera o cursor quando hover */
 }
 
 .options-menu {
@@ -187,13 +182,9 @@ li {
     width: 130px;
     height: 37px;
     background: none;
-    /* Remove o fundo */
     border: none;
-    /* Remove a borda */
     padding: 0;
-    /* Remove o preenchimento */
     cursor: pointer;
-    /* Muda o cursor ao passar por cima */
     text-decoration: underline;
 }
 
@@ -246,8 +237,7 @@ li {
 }
 
 .tecnologia {
-    display: inline-flex;
-    /* Usando inline-flex em vez de flex */
+    display: inline-flex;   
     justify-content: center;
     align-items: center;
     border-radius: 32px;
@@ -404,7 +394,7 @@ li {
     justify-content: center;
     align-items: center;
     flex: 1;
-
+    gap: 20px;
 }
 
 .p-footer-final {
@@ -416,36 +406,34 @@ li {
     display: flex;
     flex-direction: row;
     gap: 64px;
-    
     justify-content: space-between;
+}
 
-    .footer-content-text {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        justify-content: space-around;
-    }
+.titul-footer {
+    font-weight: 500;
+    font-size: 72px;
+    line-height: 1;
+}
 
-    .titul-footer {
-        font-weight: 500;
-        font-size: 72px;
-        line-height: 1;
-    }
-    
-    .subtexto {
-        font-size: 28px;
-        line-height: 1;
-    }
+.subtexto {
+    font-size: 28px;
+    line-height: 1;
+}
 
-    .subtexto-2 {
-        font-size: 22px;
-        line-height: 1;
-    
-    }
+.subtexto-2 {
+    font-size: 22px;
+    line-height: 1;
+
+}
+
+.footer-content-text {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: space-around;
 }
 
 .img-footer-content {
-    width: 100px;
     display: flex;
     flex-direction: row;
     margin-top: 20px;
@@ -471,7 +459,13 @@ li {
 }
 
 .right-img {
-    width: 90%;
+    width: 465px;
+}
+
+
+#home-indicador {
+    margin: 32px;
+    width: 200px;
 }
 
 /* Path: css/responsive.css */
@@ -550,6 +544,29 @@ li {
         }
     }
 
+    .footer-conteudo {
+        gap: 32px;
+    }
+
+    .titul-footer {
+        font-size: 40px;
+    }
+
+    .subtexto {
+        font-size: 18px;
+    }
+
+    .subtexto-2 {
+        font-size: 14px;
+    }
+    .hr-footer {
+        width: 200px;
+    }
+    .right-img {
+        width: 300px;
+    }
+
+
 }
 
 @media screen and (max-width: 768px) {
@@ -605,6 +622,44 @@ li {
 
     .sobre-mim-content {
         flex-direction: column;
+    }
+
+    .right-img {
+        display: none;
+    }
+
+    .footer-content {
+        justify-content: space-around;
+        text-align: center;
+    }
+
+    .titul-footer {
+        font-size: 62px;
+        margin-bottom: 20px;
+    }
+
+    .subtexto {
+        font-size: 18px;
+    }
+
+    .subtexto-2 {
+        font-size: 14px;
+    }
+    .hr-footer {
+        margin: auto;
+    }
+
+    .img-footer-content {
+        justify-content: center;
+    }
+
+    .footer-conteudo {
+        gap: 0px;
+    
+    }
+
+    .home-indicador {
+        width: 80px;
     }
 }
 

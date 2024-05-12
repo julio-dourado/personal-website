@@ -284,8 +284,7 @@ li {
     flex-wrap: wrap;
     gap: 32px;
     margin-top: 30px;
-    justify-content: center;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 .setas-cards {
@@ -417,7 +416,7 @@ li {
     display: flex;
     flex-direction: row;
     gap: 64px;
-    margin: 50px;
+    
     justify-content: space-between;
 
     .footer-content-text {

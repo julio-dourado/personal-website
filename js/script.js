@@ -10,3 +10,13 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+
+document.getElementById("download-cv-btn").addEventListener("click", function() {
+    var link = document.createElement("a");
+    link.href = "./../cv/cv.pdf";
+    link.download = "julio-dourado-cv.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+});

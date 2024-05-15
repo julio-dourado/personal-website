@@ -728,6 +728,10 @@ nav ul {
     .home-indicador {
         width: 80px;
     }
+
+    .p-footer-final {
+        font-size: 12px;
+    }
 }
 
 @media screen and (max-width: 615px) {

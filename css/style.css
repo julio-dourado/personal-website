@@ -79,12 +79,9 @@ li {
 
 .menu-btn-with-image {
     background-image: url('../assets/Hamburguer.svg');
-    background-color: inherit;
-    background-size: cover;
-    width: 30px;
-    height: 30px;
-    border: none;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
 }
 
 .options-menu {
@@ -469,6 +466,76 @@ li {
     width: 200px;
 }
 
+
+
+header {
+    padding: 20px;
+    position: relative;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu-item-with-options {
+    position: relative;
+}
+
+.menu-btn-with-image {
+    background: url('./../assets/Hamburguer.svg') no-repeat center center;
+    background-size: contain;
+    width: 30px;
+    height: 30px;
+    border: none;
+    cursor: pointer;
+}
+
+.option-menu {
+    background-image: url('../assets/Dropdown.svg'); /* Adiciona a imagem de fundo */
+    background-size: cover; /* Ajusta o tamanho da imagem de fundo */
+    background-position: center; /* Centraliza a imagem de fundo */
+    display: none;
+    position: absolute;
+    top: calc(50% + 15px); /* Alinha o menu de opções no meio verticalmente */
+    left: calc(50% - 135px); /* Alinha o menu de opções no meio horizontalmente */
+    z-index: 1;
+    width: 177px; /* Define uma largura fixa para o menu de opções */
+    height: 197px; /* Define uma altura fixa para o menu de opções */
+}
+
+
+.alinha-centro {
+    margin-top: 20%;
+}
+
+.option-menu li {
+    margin-bottom: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.option-menu li a {
+    color: #000000;
+    text-decoration: none;
+    display: flex;
+    justify-content: center; /* Alinha o conteúdo ao centro horizontalmente */
+    align-items: center; /* Alinha o conteúdo ao centro verticalmente */
+}
+
+.cor-amarelo {
+    color: #F59E0B !important;
+}
+
+.cor-azul {
+    color:  #38BDF8 !important;
+}
+
+.cor-verde {
+    color: #34D399 !important;
+}
 /* Path: css/responsive.css */
 
 @media screen and (max-width: 1200px) {

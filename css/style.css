@@ -833,6 +833,10 @@ nav ul {
     .span-ultimos-projetos {
         margin-top: -10px;
     }
+
+    .botao-2 {
+        font-size: 12px;
+    }
 }
 
 @media screen and (max-width: 400px) {

@@ -30,6 +30,15 @@
     box-shadow: 0px 23px 30px rgba(171, 236, 214, 0.2);
 }
 
+#download-cv-btn {
+    background-image: linear-gradient(to right, #40C4FF 0%, #189FFF 81%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    position: relative;
+    font-weight: bold;
+}
+
 
 body {
     font-family: "Poppins", sans-serif;
@@ -247,7 +256,6 @@ li {
     max-height: 270px;
     border-radius: 18px;
     margin-top: 20px;
-    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
 }
 
 .github {
@@ -256,6 +264,7 @@ li {
     display: flex;
     align-items: center;
     gap: 4px;
+    text-decoration: none;
 }
 
 .vizualization {
@@ -819,19 +828,7 @@ nav ul {
 
     .pages-content {
         width: 370px;
-    }
-
-    .h2-text {
-        font-size: 30px;
-    }
-
-    .underline-ideias {
-        width: 80px;
-        margin-left: -78px;
-    }
-
-    .span-ultimos-projetos {
-        margin-top: -10px;
+        #download-cv-btn
     }
 
     #download-cv-btn {

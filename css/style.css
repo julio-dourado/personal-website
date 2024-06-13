@@ -376,6 +376,7 @@ li {
 }
 
 .tecnologia-sobre-mim {
+    
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -386,6 +387,7 @@ li {
 
 .tecnologia-sobre-mim>img {
     width: 125px;
+    border-radius: 15px;
 }
 
 

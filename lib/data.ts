@@ -6,9 +6,9 @@ export const siteConfig = {
   email: "juliodourado419@gmail.com",
   linkedin: "https://www.linkedin.com/in/juliodourado",
   github: "https://github.com/julio-dourado",
-  portfolio: "https://julio-dourado.github.io/personal-website/",
-  domain: "https://julio-dourado.github.io/personal-website",
-  cv: "/personal-website/cv/Julio-Cesar-Almeida-Dourado.pdf",
+  portfolio: "https://juliodourado.com.br",
+  domain: "https://juliodourado.com.br",
+  cv: "/cv/Julio-Cesar-Almeida-Dourado.pdf",
   location: "Brasília, Distrito Federal, Brasil",
   summary:
     "Engenheiro de Dados com forte atuação em plataformas Cloud (AWS e ecossistema Databricks), especializado em arquiteturas Data Lakehouse, governança de dados e FinOps. Meu foco técnico transcende a criação de pipelines: atuo na construção de capacidades que garantem plataformas de dados eficientes, transparentes e financeiramente sustentáveis. Possuo ampla experiência no monitoramento de custos de nuvem, detecção de anomalias e desenvolvimento de métricas de observabilidade utilizando Python, SQL Avançado e ferramentas de visualização.",

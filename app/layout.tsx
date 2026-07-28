@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     title: "Julio Cesar Almeida Dourado | Data Engineer",
     description:
       "Engenheiro de Dados especializado em Databricks, AWS, Azure, Airflow e arquiteturas Lakehouse.",
-    url: "https://julio-dourado.github.io/personal-website",
+    url: "https://juliodourado.com.br",
     siteName: "Julio Cesar Almeida Dourado",
     locale: "pt_BR",
     type: "website",

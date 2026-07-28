@@ -77,18 +77,28 @@ Para marcar uma certificação como conquistada, mude `status: "goal"` para `sta
 npm run build
 ```
 
-A saída estática fica em `dist/`.
-
-## Deploy no GitHub Pages
-
-O site é publicado em `https://julio-dourado.github.io/personal-website/` pelo workflow `.github/workflows/deploy.yml`, que roda a cada push nesta branch.
+O site é publicado em `https://juliodourado.com.br/` pelo workflow `.github/workflows/deploy.yml`, que roda a cada push nesta branch.
 
 Configuração única necessária no repositório:
 
 1. Vá em **Settings > Pages**.
 2. Em **Build and deployment > Source**, selecione **GitHub Actions**.
+3. Em **Custom domain**, digite `juliodourado.com.br` e salve.
+4. Marque **Enforce HTTPS** após a verificação do domínio.
 
-O `next.config.ts` já está ajustado com `basePath: "/personal-website"` e `output: "export"`, e o `public/.nojekyll` garante que o Pages sirva a pasta `_next`.
+O `next.config.ts` está sem `basePath` para servir na raiz do domínio próprio, e o `public/CNAME` garante que o GitHub Pages reconheça o domínio no artefato do workflow.
+
+## DNS no Registro.br
+
+Para apontar `juliodourado.com.br` e `www.juliodourado.com.br` para o GitHub Pages:
+
+- **A @** → `185.199.108.153`
+- **A @** → `185.199.109.153`
+- **A @** → `185.199.110.153`
+- **A @** → `185.199.111.153`
+- **CNAME www** → `julio-dourado.github.io.`
+
+(Se o Registro.br não aceitar vários registros A para o mesmo @, coloque apenas o primeiro: `185.199.108.153`.)
 
 ---
 

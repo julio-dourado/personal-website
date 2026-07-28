@@ -33,7 +33,7 @@ export function About() {
                 <p>{siteConfig.summary}</p>
               </div>
 
-              <div className="mt-10 grid grid-cols-3 gap-3 sm:gap-4">
+              <div className="mt-10 grid grid-cols-3 gap-2 sm:gap-4">
                 <Stat label="Anos de experiência" value="4+" />
                 <Stat label="Empresas & projetos" value="7+" />
                 <Stat label="Foco atual" value="Lakehouse" small />
@@ -67,15 +67,15 @@ function Stat({
   small?: boolean;
 }) {
   return (
-    <div className="glass rounded-2xl p-4 text-center sm:p-5">
+    <div className="glass rounded-2xl p-3 text-center sm:p-5">
       <p
         className={`font-black text-brand ${
-          small ? "text-sm sm:text-xl md:text-2xl" : "text-3xl"
+          small ? "text-xs sm:text-xl md:text-2xl" : "text-2xl sm:text-3xl"
         }`}
       >
         {value}
       </p>
-      <p className="mt-1 text-[11px] font-medium uppercase tracking-wider text-muted sm:text-xs">
+      <p className="mt-1.5 text-[10px] font-medium uppercase leading-tight tracking-wide text-muted sm:text-xs">
         {label}
       </p>
     </div>

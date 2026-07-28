@@ -265,3 +265,36 @@ a:focus-visible {
   pointer-events: none;
   z-index: 0;
 }
+
+/* ===== Ajustes mobile (baseado nos media queries do site original) ===== */
+/* Corta elementos decorativos absolutos (blurs, glows) que vazam e criam
+   padding/scroll horizontal à direita em telas < 480px */
+html,
+body {
+  overflow-x: clip;
+}
+
+section {
+  overflow-x: clip;
+}
+
+/* Abaixo de 480px: reduz títulos para caber corretamente (480/400px no site antigo) */
+@media screen and (max-width: 480px) {
+  h1 {
+    font-size: 1.9rem !important;
+  }
+
+  h2 {
+    font-size: 1.65rem !important;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  h1 {
+    font-size: 1.7rem !important;
+  }
+
+  h2 {
+    font-size: 1.45rem !important;
+  }
+}

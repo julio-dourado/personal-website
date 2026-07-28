@@ -301,7 +301,7 @@ export const projects: Project[] = [
       "Este site: evolução do meu primeiro portfólio (HTML, CSS e JS puros) para Next.js, com blog em MDX, fundo interativo em Three.js e exportação estática para o GitHub Pages.",
     tags: ["Next.js", "Three.js", "Tailwind", "MDX", "TypeScript"],
     repoUrl: "https://github.com/julio-dourado/personal-website",
-    demoUrl: "https://julio-dourado.github.io/personal-website/",
+    demoUrl: "https://juliodourado.com.br/",
     icon: "web",
   },
 ];

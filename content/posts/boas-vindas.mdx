@@ -1,0 +1,30 @@
+---
+title: "Boas-vindas ao meu blog"
+date: "2026-07-11"
+summary: "Primeiro post do blog: o que você vai encontrar por aqui sobre engenharia de dados, Databricks, AWS e muito mais."
+tags: ["engenharia de dados", "databricks", "aws"]
+---
+
+Olá! Este é o primeiro post do meu blog pessoal.
+
+Aqui vou compartilhar aprendizados práticos sobre:
+
+- **Engenharia de Dados** com foco em Databricks e Delta Lake
+- **Cloud**: AWS, Azure e boas práticas de FinOps
+- **Orquestração**: Apache Airflow, Databricks Workflows
+- **Python, SQL e observabilidade** de pipelines
+
+## Por que começar um blog?
+
+Escrever sobre o que estudo e trabalho me ajuda a fixar conhecimento. Além disso, quero contribuir com a comunidade técnica de forma direta e objetiva.
+
+```python
+# Exemplo de código que você verá por aqui
+from pyspark.sql import SparkSession
+
+spark = SparkSession.builder.getOrCreate()
+df = spark.read.format("delta").load("/mnt/bronze/dados")
+df.show()
+```
+
+Fique à vontade para me chamar no [LinkedIn](https://www.linkedin.com/in/juliodourado) para trocar ideias.

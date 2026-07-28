@@ -1,0 +1,58 @@
+---
+title: "Lakehouse na prática: bronze, silver e gold com Delta Lake"
+date: "2026-07-18"
+summary: "Como estruturar uma arquitetura medallion no Databricks usando Delta Lake, com governança via Unity Catalog e dicas de quem mantém isso em produção."
+tags: ["databricks", "delta lake", "lakehouse", "unity catalog"]
+---
+
+A arquitetura **medallion** (bronze → silver → gold) virou o padrão de facto para organizar dados em um Lakehouse. Mas sair do slide para a produção exige decisões concretas. Neste post, compartilho como estruturo essas camadas no Databricks.
+
+## Bronze: a fonte da verdade, sem maquiagem
+
+A camada bronze recebe os dados brutos, exatamente como chegam da fonte. Regras que sigo:
+
+- **Nada de transformação de negócio aqui** — no máximo, adiciono metadados técnicos como `_ingestion_timestamp` e `_source`.
+- Sempre em **Delta Lake**, nunca em arquivos soltos. O versionamento e o `OPTIMIZE` se pagam sozinhos.
+- Particiono por data de ingestão quando o volume justifica.
+
+```python
+from pyspark.sql import functions as F
+
+df_bronze = (
+    spark.read.format("cloudFiles")
+    .option("cloudFiles.format", "json")
+    .load("s3://meu-bucket/raw/orders/")
+    .withColumn("_ingestion_timestamp", F.current_timestamp())
+    .withColumn("_source", F.lit("api-orders"))
+)
+
+df_bronze.write.format("delta").mode("append").saveAsTable("bronze.orders")
+```
+
+## Silver: limpeza, deduplicação e conformidade
+
+Na silver os dados ganham qualidade: tipos corretos, deduplicação, chaves consistentes e regras de integridade. É aqui que o `MERGE` do Delta brilha para cargas incrementais idempotentes:
+
+```sql
+MERGE INTO silver.orders AS t
+USING staging.orders_updates AS s
+ON t.order_id = s.order_id
+WHEN MATCHED THEN UPDATE SET *
+WHEN NOT MATCHED THEN INSERT *;
+```
+
+## Gold: pronto para o negócio
+
+A gold responde perguntas de negócio: agregações, métricas e modelos dimensionais prontos para o Power BI ou para outras equipes. Poucas tabelas, bem documentadas e com owners definidos no **Unity Catalog**.
+
+## Governança não é opcional
+
+Com Unity Catalog, defino quem lê o quê em nível de tabela e coluna, mantenho lineage automático entre as camadas e catalogo tudo desde o início. Governança deixada "para depois" simplesmente não acontece.
+
+## O que eu faria diferente no primeiro projeto
+
+1. Começaria com convenções de nome desde o dia um (`bronze.dominio_entidade`).
+2. Automatizaria testes de qualidade na silver com expectations do Delta Live Tables ou Great Expectations.
+3. Monitoraria custo por workload desde o início — assunto do próximo post sobre FinOps.
+
+Dúvidas ou discordâncias? Me chama no [LinkedIn](https://www.linkedin.com/in/juliodourado).

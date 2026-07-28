@@ -1,0 +1,63 @@
+---
+title: "FinOps para engenharia de dados: observando custos antes que virem problema"
+date: "2026-07-25"
+summary: "Custo de nuvem é um requisito não-funcional do pipeline. Como monto métricas de observabilidade de custos, detecto anomalias e mantenho plataformas de dados financeiramente sustentáveis."
+tags: ["finops", "aws", "databricks", "observabilidade"]
+---
+
+Pipeline de dados bom não é só o que roda verde: é o que roda verde **dentro do orçamento**. Depois de alguns sustos com fatura de nuvem, passei a tratar custo como métrica de observabilidade de primeira classe. Este post resume meu approach.
+
+## O princípio: custo é um sinal, não um relatório
+
+Relatório de fatura no fim do mês é autópsia. O que funciona é telemetria contínua:
+
+- **Custo por workload** (cluster, job, DAG) e não só por conta.
+- **Custo por unidade de negócio** quando dá: por tabela gold, por dashboard, por cliente interno.
+- **Tendência e anomalia**, não apenas valor absoluto.
+
+## Métricas que acompanho no Databricks e na AWS
+
+1. **DBU por job** ao longo do tempo — um job que dobra de DBU sem dobrar de volume é um smell.
+2. **Tempo de fila vs. tempo de execução** em clusters compartilhados.
+3. **Storage por camada** no S3 — bronze cresce para sempre se ninguém configurar lifecycle.
+4. **Custo de queries ad-hoc** — Redshift e SQL warehouses ligados 24/7 "por via das dúvidas".
+
+## Detectando anomalias com SQL simples
+
+Não precisa de machine learning para começar. Uma média móvel com desvio padrão já pega a maioria dos problemas:
+
+```sql
+WITH daily AS (
+  SELECT
+    usage_date,
+    SUM(usage_quantity) AS dbus
+  FROM system.billing.usage
+  WHERE workspace_id = current_workspace()
+  GROUP BY usage_date
+),
+stats AS (
+  SELECT
+    AVG(dbus) AS media,
+    STDDEV(dbus) AS desvio
+  FROM daily
+  WHERE usage_date >= date_sub(current_date(), 30)
+)
+SELECT d.usage_date, d.dbus
+FROM daily d CROSS JOIN stats s
+WHERE d.dbus > s.media + 2 * s.desvio
+ORDER BY d.usage_date DESC;
+```
+
+Qualquer dia fora de 2 desvios padrão vira alerta para investigação.
+
+## O loop que funciona
+
+1. **Medir** — tagging consistente em tudo (jobs, clusters, buckets).
+2. **Visualizar** — dashboard de custo ao lado do dashboard de saúde dos pipelines.
+3. **Alertar** — anomalia detectada, mensagem no canal do time.
+4. **Agir** — right-sizing, `OPTIMIZE`, lifecycle policies, auto-termination.
+5. **Repetir** — FinOps é processo contínuo, não projeto com fim.
+
+A plataforma mais barata não é a que usa menos recursos: é a que entrega o máximo de valor por real gasto. Esse é o mindset.
+
+Mais sobre o tema em breve. Comentários? Me encontra no [LinkedIn](https://www.linkedin.com/in/juliodourado).

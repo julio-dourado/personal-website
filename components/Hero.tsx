@@ -14,7 +14,7 @@ export function Hero() {
     >
       <HeroBackground />
 
-      <div className="relative z-10 mx-auto max-w-5xl px-4 text-center">
+      <div className="relative z-10 mx-auto w-full max-w-5xl px-4 text-center">
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -28,7 +28,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className="text-[2.5rem] leading-tight font-black tracking-tight text-foreground sm:text-7xl md:text-8xl"
+          className="text-[clamp(2rem,9vw,2.5rem)] leading-tight font-black tracking-tight text-foreground sm:text-7xl md:text-8xl"
         >
           Julio <span className="text-gradient-brand">Dourado</span>
         </motion.h1>

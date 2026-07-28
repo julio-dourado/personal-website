@@ -70,7 +70,7 @@ function Stat({
     <div className="glass rounded-2xl p-4 text-center sm:p-5">
       <p
         className={`font-black text-brand ${
-          small ? "text-xl sm:text-2xl" : "text-3xl"
+          small ? "text-sm sm:text-xl md:text-2xl" : "text-3xl"
         }`}
       >
         {value}

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Linkedin, Github, Mail, MapPin } from "lucide-react";
+import { Linkedin, Github, Mail, MapPin, MessageCircle } from "lucide-react";
 import { FadeIn } from "./FadeIn";
 import { siteConfig } from "@/lib/data";
 
@@ -20,7 +20,7 @@ export function Contact() {
           <p className="mx-auto mt-6 max-w-2xl text-muted text-lg leading-relaxed">
             Vamos construí-la juntos! Estou aberto a oportunidades,
             colaborações e trocas sobre engenharia de dados. Me chama no
-            LinkedIn ou envie um e-mail.
+            WhatsApp, LinkedIn ou envie um e-mail.
           </p>
         </FadeIn>
 
@@ -28,10 +28,21 @@ export function Contact() {
           <div className="mt-12 flex flex-wrap items-center justify-center gap-4">
             <motion.div whileHover={{ y: -4 }}>
               <Link
-                href={siteConfig.linkedin}
+                href={siteConfig.whatsapp}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-full bg-brand px-8 py-4 text-base font-bold text-white shadow-lg shadow-brand/30 hover:bg-brand-hover transition-colors"
+              >
+                <MessageCircle className="h-5 w-5" />
+                WhatsApp
+              </Link>
+            </motion.div>
+            <motion.div whileHover={{ y: -4 }}>
+              <Link
+                href={siteConfig.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full glass px-8 py-4 text-base font-bold text-foreground hover:border-brand/50 hover:text-brand transition-colors"
               >
                 <Linkedin className="h-5 w-5" />
                 LinkedIn
@@ -61,9 +72,18 @@ export function Contact() {
         </FadeIn>
 
         <FadeIn delay={0.3}>
-          <div className="mt-10 flex items-center justify-center gap-2 text-sm text-muted">
-            <MapPin className="h-4 w-4" />
-            {siteConfig.location}
+          <div className="mt-10 flex flex-col items-center justify-center gap-3 text-sm text-muted">
+            <Link
+              href={`mailto:${siteConfig.email}`}
+              className="flex items-center gap-2 hover:text-brand transition-colors"
+            >
+              <Mail className="h-4 w-4" />
+              {siteConfig.email}
+            </Link>
+            <div className="flex items-center gap-2">
+              <MapPin className="h-4 w-4" />
+              {siteConfig.location}
+            </div>
           </div>
         </FadeIn>
       </div>

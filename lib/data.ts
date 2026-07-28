@@ -6,6 +6,7 @@ export const siteConfig = {
   email: "juliodourado419@gmail.com",
   linkedin: "https://www.linkedin.com/in/juliodourado",
   github: "https://github.com/julio-dourado",
+  whatsapp: "https://wa.me/5561991814759",
   portfolio: "https://juliodourado.com.br",
   domain: "https://juliodourado.com.br",
   cv: "/cv/Julio-Cesar-Almeida-Dourado.pdf",

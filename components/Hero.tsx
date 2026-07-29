@@ -21,7 +21,7 @@ export function Hero() {
           transition={{ duration: 0.6 }}
           className="mb-6 text-sm font-semibold uppercase tracking-[0.2em] text-brand"
         >
-          Olá, eu sou o Júlio! 🤙
+          Olá! 🤙 Eu sou
         </motion.p>
 
         <motion.h1
@@ -39,10 +39,9 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="mx-auto mt-8 max-w-2xl text-lg text-muted sm:text-xl leading-relaxed"
         >
-          Desenvolvo <span className="text-foreground font-medium">ideias</span> e
-          ajudo a construir um mundo melhor através do software — hoje, como
-          Engenheiro de Dados, construo plataformas eficientes e sustentáveis
-          com <span className="text-foreground font-medium">Databricks</span>,{" "}
+          Engenheiro de Dados: construo plataformas eficientes e
+          sustentáveis com{" "}
+          <span className="text-foreground font-medium">Databricks</span>,{" "}
           <span className="text-foreground font-medium">AWS</span>,{" "}
           <span className="text-foreground font-medium">Azure</span>,{" "}
           <span className="text-foreground font-medium">Airflow</span> e{" "}

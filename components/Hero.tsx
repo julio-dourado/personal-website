@@ -15,15 +15,6 @@ export function Hero() {
       <HeroBackground />
 
       <div className="relative z-10 mx-auto w-full max-w-5xl px-4 text-center">
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="mb-6 text-sm font-semibold uppercase tracking-[0.2em] text-brand"
-        >
-          Olá! 🤙 Eu sou
-        </motion.p>
-
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}

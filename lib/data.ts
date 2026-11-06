@@ -178,7 +178,7 @@ export const education = [
   {
     institution: "Universidade de Brasília (UnB) — FCTE",
     degree: "Bacharelado em Engenharia de Software",
-    period: "2021 — 2027 (previsto)",
+    period: "2021 — jul/2027 (previsto)",
   },
 ];
 

@@ -21,12 +21,16 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
-  title: "Julio Cesar Almeida Dourado | Data Engineer",
+  title: "Julio Cesar Almeida Dourado | Software & AI Engineer",
   description:
-    "Portfólio de Julio Cesar Almeida Dourado, Engenheiro de Dados especializado em Databricks, AWS, Azure, Airflow, Python e arquiteturas Data Lakehouse.",
+    "Portfólio de Julio Cesar Almeida Dourado, Engenheiro de Software focado em IA: modelos de NLP, Hugging Face, APIs de inferência, MLOps e pipelines de dados na AWS.",
   keywords: [
+    "AI Engineer",
+    "Engenharia de Software",
+    "NLP",
+    "Hugging Face",
+    "MLOps",
     "Engenheiro de Dados",
-    "Data Engineer",
     "Databricks",
     "AWS",
     "Azure",
@@ -37,9 +41,9 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Julio Cesar Almeida Dourado" }],
   openGraph: {
-    title: "Julio Cesar Almeida Dourado | Data Engineer",
+    title: "Julio Cesar Almeida Dourado | Software & AI Engineer",
     description:
-      "Engenheiro de Dados especializado em Databricks, AWS, Azure, Airflow e arquiteturas Lakehouse.",
+      "Engenheiro de Software focado em IA: NLP, Hugging Face, MLOps e pipelines de dados na AWS.",
     url: "https://juliodourado.com.br",
     siteName: "Julio Cesar Almeida Dourado",
     locale: "pt_BR",
@@ -47,9 +51,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Julio Cesar Almeida Dourado | Data Engineer",
+    title: "Julio Cesar Almeida Dourado | Software & AI Engineer",
     description:
-      "Engenheiro de Dados especializado em Databricks, AWS, Azure, Airflow e arquiteturas Lakehouse.",
+      "Engenheiro de Software focado em IA: NLP, Hugging Face, MLOps e pipelines de dados na AWS.",
   },
   robots: "index, follow",
 };
@@ -73,7 +77,7 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Person",
               name: "Julio Cesar Almeida Dourado",
-              jobTitle: "Engenheiro de Dados",
+              jobTitle: "Engenheiro de Software (IA & Dados)",
               url: "https://juliodourado.com.br",
               email: "mailto:juliodourado419@gmail.com",
               address: {
@@ -83,6 +87,10 @@ export default function RootLayout({
                 addressCountry: "BR",
               },
               knowsAbout: [
+                "Inteligência Artificial",
+                "Processamento de Linguagem Natural",
+                "Hugging Face",
+                "MLOps",
                 "Engenharia de Dados",
                 "Databricks",
                 "AWS",
@@ -95,6 +103,7 @@ export default function RootLayout({
               sameAs: [
                 "https://www.linkedin.com/in/juliodourado",
                 "https://github.com/julio-dourado",
+                "https://huggingface.co/juliodourado1",
               ],
             }),
           }}

@@ -1,8 +1,8 @@
 export const siteConfig = {
   name: "Julio Cesar Almeida Dourado",
   fullName: "Julio Cesar Almeida Dourado",
-  role: "Engenheiro de Dados",
-  headline: "Data Engineer | Databricks | Airflow | AWS | Azure",
+  role: "Engenheiro de Software · IA & Dados",
+  headline: "Software & AI Engineer | NLP | Hugging Face | Python | AWS",
   email: "juliodourado419@gmail.com",
   linkedin: "https://www.linkedin.com/in/juliodourado",
   github: "https://github.com/julio-dourado",
@@ -12,9 +12,9 @@ export const siteConfig = {
   cv: "/cv/Julio-Cesar-Almeida-Dourado.pdf",
   location: "Brasília, Distrito Federal, Brasil",
   summary:
-    "Engenheiro de Dados com forte atuação em plataformas Cloud (AWS e ecossistema Databricks), especializado em arquiteturas Data Lakehouse, governança de dados e FinOps. Meu foco técnico transcende a criação de pipelines: atuo na construção de capacidades que garantem plataformas de dados eficientes, transparentes e financeiramente sustentáveis. Possuo ampla experiência no monitoramento de custos de nuvem, detecção de anomalias e desenvolvimento de métricas de observabilidade utilizando Python, SQL Avançado e ferramentas de visualização.",
+    "Estudante de Engenharia de Software na UnB (FCTE). Construo o software ao redor de modelos de IA: APIs de inferência, coleta de feedback humano e observabilidade de modelos de linguagem. Comecei isso no AI.lab UnB, no Projeto Sabiá com o Tribunal Superior do Trabalho. Trago também a base de Engenharia de Dados na AWS (Spark, Airflow, Lakehouse) da Stefanini e da BrBPO, porque modelo bom depende de dado confiável. Publico modelos e código abertos no Hugging Face e no GitHub.",
   summaryShort:
-    "Plataformas de dados eficientes, transparentes e financeiramente sustentáveis com Databricks, AWS e arquiteturas Lakehouse.",
+    "Software para IA em produção: modelos de NLP, APIs de inferência, human-in-the-loop e os pipelines de dados que sustentam tudo isso.",
 };
 
 export type Skill = {
@@ -24,6 +24,13 @@ export type Skill = {
 };
 
 export const skills: Skill[] = [
+  // IA & NLP
+  { name: "PyTorch", category: "IA & NLP", icon: "pytorch" },
+  { name: "Hugging Face", category: "IA & NLP", icon: "huggingface" },
+  { name: "Transformers (BERT)", category: "IA & NLP" },
+  { name: "scikit-learn", category: "IA & NLP", icon: "scikitlearn" },
+  { name: "Streamlit", category: "IA & NLP", icon: "streamlit" },
+  { name: "Monitoramento de modelos", category: "IA & NLP" },
   // Cloud & Big Data
   { name: "Databricks", category: "Cloud & Big Data", icon: "databricks" },
   { name: "Delta Lake", category: "Cloud & Big Data" },
@@ -50,7 +57,8 @@ export const skills: Skill[] = [
   { name: "FastAPI", category: "Engenharia de Software & DevOps", icon: "fastapi" },
   { name: "Docker", category: "Engenharia de Software & DevOps", icon: "docker" },
   { name: "Git", category: "Engenharia de Software & DevOps", icon: "git" },
-  { name: "Streamlit", category: "Engenharia de Software & DevOps", icon: "streamlit" },
+  { name: "GitHub Actions", category: "Engenharia de Software & DevOps", icon: "githubactions" },
+  { name: "pytest", category: "Engenharia de Software & DevOps", icon: "pytest" },
 ];
 
 export type Certification = {
@@ -160,12 +168,12 @@ export const experiences: Experience[] = [
   },
   {
     company: "AI.lab UnB",
-    role: "Pesquisador / Desenvolvedor Full Stack",
+    role: "Pesquisador Bolsista — Backend para NLP",
     period: "set 2023 — mai 2024",
-    location: "Brasília, DF",
+    location: "Projeto Sabiá · Tribunal Superior do Trabalho",
     description:
-      "Desenvolvimento de APIs REST com Python, FastAPI e PostgreSQL, implantação com Docker e criação de análises em Streamlit sobre o desempenho de modelos de IA. Atuação em time ágil (Scrum) com colaboração via GitLab.",
-    tags: ["Python", "FastAPI", "PostgreSQL", "Docker", "Streamlit", "Scrum"],
+      "Construí a base PostgreSQL e as APIs em FastAPI do backend que sustenta os modelos de NLP usados na análise de processos do TST (sistema Bem-te-vi), refatorando o banco para o novo módulo de AIRR. Implementei os endpoints de feedback de modelos, para os servidores avaliarem as predições, e painéis em Streamlit para acompanhar treinamentos e performance dos modelos de linguagem. Time ágil (Scrum), com Docker e GitLab.",
+    tags: ["NLP", "Python", "FastAPI", "PostgreSQL", "Docker", "Streamlit"],
   },
   {
     company: "Migoc2",
@@ -189,7 +197,7 @@ export const experiences: Experience[] = [
 
 export const education = [
   {
-    institution: "Universidade de Brasília (UnB)",
+    institution: "Universidade de Brasília (UnB) — FCTE",
     degree: "Bacharelado em Engenharia de Software",
     period: "2021 — 2027 (previsto)",
   },
@@ -217,8 +225,14 @@ export const journey = [
   {
     title: "Lakehouse, Governança e FinOps",
     description:
-      "Hoje foco em arquiteturas Lakehouse, governança de dados, Unity Catalog, Delta Lake e observabilidade de custos em nuvem (FinOps).",
+      "Trabalhei com arquiteturas Lakehouse, governança de dados, Unity Catalog, Delta Lake e observabilidade de custos em nuvem (FinOps).",
     icon: "cloud",
+  },
+  {
+    title: "IA em produção",
+    description:
+      "Hoje foco em levar modelos de IA para produção: fine-tuning de modelos de linguagem, APIs de inferência, feedback humano e monitoramento de drift, juntando o que aprendi no AI.lab com a base de dados.",
+    icon: "brain",
   },
 ];
 
@@ -229,10 +243,27 @@ export type Project = {
   repoUrl?: string;
   demoUrl?: string;
   image?: string;
-  icon: "finops" | "lakehouse" | "airflow" | "api" | "web" | "rpa";
+  icon: "finops" | "lakehouse" | "airflow" | "api" | "web" | "rpa" | "ai" | "model";
 };
 
 export const projects: Project[] = [
+  {
+    title: "Legal NLP Feedback Engine",
+    description:
+      "Classificador jurídico em produção com human-in-the-loop: registra cada predição, coleta a validação do revisor, mede acurácia online e latência e detecta drift (PSI) contra o perfil offline do modelo. As correções viram dataset para o próximo fine-tuning.",
+    tags: ["FastAPI", "Streamlit", "Hugging Face", "Docker", "MLOps"],
+    repoUrl: "https://github.com/julio-dourado/legal-nlp-feedback-engine",
+    demoUrl: "https://legal-nlp-feedback-engine.streamlit.app",
+    icon: "ai",
+  },
+  {
+    title: "BERTimbau Legal Judgment PT-BR",
+    description:
+      "Fine-tuning do BERTimbau para prever o desfecho de recursos em 4.043 decisões do TJAL: F1-macro 0,68 e acurácia 74% no teste. O truncamento head+tail em 512 tokens rendeu +15 pontos de F1 sobre o baseline.",
+    tags: ["PyTorch", "Transformers", "NLP", "Hugging Face"],
+    demoUrl: "https://huggingface.co/juliodourado1/bertimbau-legal-judgment-ptbr",
+    icon: "model",
+  },
   {
     title: "Todo App",
     description:

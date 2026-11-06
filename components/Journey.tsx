@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Code, BarChart3, Database, Cloud } from "lucide-react";
+import { Code, BarChart3, Database, Cloud, Brain } from "lucide-react";
 import { FadeIn, StaggerContainer, StaggerItem } from "./FadeIn";
 import { journey } from "@/lib/data";
 
@@ -10,6 +10,7 @@ const iconMap: Record<string, React.ReactNode> = {
   barChart: <BarChart3 className="h-6 w-6" />,
   database: <Database className="h-6 w-6" />,
   cloud: <Cloud className="h-6 w-6" />,
+  brain: <Brain className="h-6 w-6" />,
 };
 
 export function Journey() {

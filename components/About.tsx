@@ -36,7 +36,7 @@ export function About() {
               <div className="mt-10 grid grid-cols-3 gap-2 sm:gap-4">
                 <Stat label="Anos de experiência" value="4+" />
                 <Stat label="Empresas & projetos" value="7+" />
-                <Stat label="Foco atual" value="Lakehouse" small />
+                <Stat label="Foco atual" value="IA & NLP" small />
               </div>
             </div>
           </FadeIn>

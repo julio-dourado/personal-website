@@ -11,6 +11,8 @@ import {
   Server,
   Globe,
   Bot,
+  BrainCircuit,
+  Scale,
 } from "lucide-react";
 import { FadeIn, StaggerContainer, StaggerItem } from "./FadeIn";
 import { projects } from "@/lib/data";
@@ -22,6 +24,8 @@ const iconMap: Record<string, React.ReactNode> = {
   api: <Server className="h-7 w-7" />,
   web: <Globe className="h-7 w-7" />,
   rpa: <Bot className="h-7 w-7" />,
+  ai: <Scale className="h-7 w-7" />,
+  model: <BrainCircuit className="h-7 w-7" />,
 };
 
 export function Projects() {

@@ -30,13 +30,14 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="mx-auto mt-8 max-w-2xl text-lg text-muted sm:text-xl leading-relaxed"
         >
-          Engenheiro de Dados: construo plataformas eficientes e
-          sustentáveis com{" "}
-          <span className="text-foreground font-medium">Databricks</span>,{" "}
-          <span className="text-foreground font-medium">AWS</span>,{" "}
-          <span className="text-foreground font-medium">Azure</span>,{" "}
-          <span className="text-foreground font-medium">Airflow</span> e{" "}
-          <span className="text-foreground font-medium">Python</span>.
+          Engenheiro de Software: construo o software que coloca{" "}
+          <span className="text-foreground font-medium">modelos de IA</span> em
+          produção, de{" "}
+          <span className="text-foreground font-medium">NLP</span> e{" "}
+          <span className="text-foreground font-medium">Hugging Face</span> a
+          APIs e pipelines de dados com{" "}
+          <span className="text-foreground font-medium">Python</span> e{" "}
+          <span className="text-foreground font-medium">AWS</span>.
         </motion.p>
 
         <motion.div

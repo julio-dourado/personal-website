@@ -14,7 +14,7 @@ export function Footer() {
               Julio Cesar Almeida Dourado
             </p>
             <p className="mt-1 text-sm text-muted">
-              Data Engineer | Databricks | AWS | Azure
+              {siteConfig.headline}
             </p>
           </div>
 

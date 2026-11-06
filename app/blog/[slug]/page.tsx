@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { rehypePrettyCode } from "rehype-pretty-code";
+import remarkGfm from "remark-gfm";
 import { getAllSlugs, getPostBySlug } from "@/lib/mdx";
 import { formatDate } from "@/lib/utils";
 import { ArrowLeft, Calendar, Clock } from "lucide-react";
@@ -84,6 +85,7 @@ export default async function PostPage({ params }: Props) {
               options={{
                 parseFrontmatter: false,
                 mdxOptions: {
+                  remarkPlugins: [remarkGfm],
                   rehypePlugins: [
                     [
                       rehypePrettyCode,

@@ -298,3 +298,26 @@ section {
     font-size: 1.45rem !important;
   }
 }
+
+.prose table {
+  width: 100%;
+  margin: 1.75rem 0;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+  display: block;
+  overflow-x: auto;
+}
+
+.prose th,
+.prose td {
+  padding: 0.6rem 0.9rem;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+  white-space: nowrap;
+}
+
+.prose th {
+  color: var(--foreground);
+  font-weight: 600;
+  border-bottom-color: var(--muted);
+}

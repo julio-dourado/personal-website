@@ -8,7 +8,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Blog | Julio Cesar Almeida Dourado",
   description:
-    "Artigos sobre Engenharia de Dados, Databricks, AWS, Azure, Airflow, Python e boas práticas de dados.",
+    "Artigos sobre IA aplicada, NLP, MLOps, Engenharia de Dados, AWS e Python.",
 };
 
 export default function BlogPage() {

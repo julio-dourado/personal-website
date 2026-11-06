@@ -1,0 +1,80 @@
+---
+title: "+15 pontos de F1 sem trocar de modelo: truncamento head+tail em decisões judiciais"
+date: "2026-11-06"
+summary: "Fine-tuning do BERTimbau para prever o desfecho de recursos do TJAL. O ganho veio de olhar os dados antes de mexer no modelo, mais um relato de como treinar 512 tokens num Mac de 16 GB."
+tags: ["nlp", "bertimbau", "hugging face", "fine-tuning", "legal ai"]
+---
+
+Treinei um classificador para prever o desfecho de recursos judiciais (**não provido**, **parcialmente provido** ou **provido**) a partir da ementa da decisão. A primeira versão ficou em **0,53 de F1-macro**. A segunda chegou a **0,68**, com o mesmo modelo, o mesmo dataset e quase os mesmos hiperparâmetros. Neste post conto o que mudou.
+
+O modelo está publicado no [Hugging Face](https://huggingface.co/juliodourado1/bertimbau-legal-judgment-ptbr), e o serviço que o coloca em produção com feedback humano está no [GitHub](https://github.com/julio-dourado/legal-nlp-feedback-engine).
+
+## O problema e uma armadilha de vazamento
+
+Usei o dataset público [`brazilian_court_decisions`](https://huggingface.co/datasets/joelniklaus/brazilian_court_decisions): 4.043 decisões do Tribunal de Justiça de Alagoas, do artigo *Predicting Brazilian Court Decisions* (Lage-Freitas et al., PeerJ 2022).
+
+A primeira decisão importante foi sobre **qual campo usar como entrada**. O campo `ementa_text` termina com o dispositivo:
+
+> APELAÇÃO CÍVEL. MANDADO DE SEGURANÇA. SERVIDOR PÚBLICO. [...] CONCESSÃO DA SEGURANÇA MANTIDA. **RECURSO CONHECIDO E NÃO PROVIDO.**
+
+Com ele, a tarefa vira busca por palavra-chave e qualquer modelo tira nota alta sem aprender nada. Por isso usei `decision_description`, a mesma ementa **sem a frase do resultado**. Essa é a formulação real de *Legal Judgment Prediction*.
+
+## Baseline: BERTimbau com 256 tokens
+
+Comecei pelo caminho padrão: [BERTimbau base](https://huggingface.co/neuralmind/bert-base-portuguese-cased), textos cortados em 256 tokens, cross-entropy com **pesos por classe**. O dataset é desbalanceado: 1.960 "não provido" contra 597 "provido" no treino.
+
+Resultado no teste: **F1-macro 0,531, acurácia 0,541**. Acima do chute (0,33), mas fraco. E a curva ainda subia a cada época, um sinal clássico de *underfitting*.
+
+## O diagnóstico: medir antes de trocar de modelo
+
+Antes de trocar para um modelo maior, medi o tamanho dos textos em tokens:
+
+| percentil | 50 | 75 | 90 | 95 | 99 |
+|---|---|---|---|---|---|
+| tokens | 323 | 463 | 680 | 861 | 1.508 |
+
+**67% das ementas passavam de 256 tokens.** E o corte padrão do tokenizer mantém o **começo** do texto e descarta o **final**. Numa ementa, o começo traz a classe processual e o assunto ("APELAÇÃO CÍVEL. DIREITO DO CONSUMIDOR..."). As frases que decidem o caso, como "CONCESSÃO DA SEGURANÇA MANTIDA" ou "SENTENÇA REFORMADA EM PARTE", ficam no **fim**, logo antes do dispositivo que removi. Ou seja, o modelo era treinado justamente sem a parte que mais importava.
+
+## Head+tail: guardar o começo *e* o fim
+
+A técnica vem de Sun et al. (2019), *How to Fine-Tune BERT for Text Classification?*: em vez de cortar à direita, mantenha os primeiros `h` tokens e os últimos `512 - h - 2`. Usei 128 tokens de cabeça e 382 de cauda:
+
+```python
+def head_tail_ids(ids: list[int], max_length: int = 512, head: int = 128) -> list[int]:
+    budget = max_length - 2  # espaço para [CLS] e [SEP]
+    if len(ids) <= budget:
+        return ids
+    return ids[:head] + ids[-(budget - head):]
+
+ids = tok(text, add_special_tokens=False)["input_ids"]
+ids = [tok.cls_token_id, *head_tail_ids(ids), tok.sep_token_id]
+```
+
+Um detalhe que costuma passar batido: **a inferência precisa usar exatamente a mesma truncagem**. O `pipeline()` do `transformers` corta à direita por padrão. Se o serviço em produção usar ele, o modelo recebe textos diferentes dos que viu no treino (*training-serving skew*) e perde precisão sem gerar nenhum erro. No [app](https://github.com/julio-dourado/legal-nlp-feedback-engine/blob/main/core/model.py), essa função é usada tanto no treino quanto na inferência e tem teste unitário.
+
+## Treinar 512 tokens num MacBook de 16 GB
+
+Dobrar o tamanho da sequência multiplica a memória de ativações. Na prática, foram três tentativas:
+
+1. **Batch 16 com 512 tokens:** o macOS matou o processo depois de 2 passos, por falta de memória.
+2. **Batch 8 com acumulação de gradiente 2** (batch efetivo continua 16) **e bf16:** rodou a 2,8 s/passo, mas morreu por *OOM* da GPU (MPS) depois da primeira época, quando o sistema disputou a memória unificada.
+3. **Gradient checkpointing e retomada do checkpoint da época 1** (`resume_from_checkpoint`): completou as 5 épocas.
+
+Lição: a memória unificada do Apple Silicon é dividida com tudo que está aberto, e swap não salva a GPU. Salvar checkpoint a cada época foi o que evitou recomeçar do zero.
+
+## Resultado
+
+| configuração | F1-macro (teste) | acurácia (teste) |
+|---|---|---|
+| 256 tokens, corte à direita | 0,531 | 0,541 |
+| **512 tokens, head+tail** | **0,682** | **0,738** |
+
+Por classe, "não provido" chega a 0,84 de F1. "Parcialmente provido" (0,61) e "provido" (0,60) são mais difíceis, e a matriz de confusão mostra o motivo: boa parte dos erros fica justamente entre as duas, cuja fronteira é sutil no texto.
+
+## O que levo disso
+
+- **Olhe a distribuição dos dados antes de escalar o modelo.** Aqui o ganho não veio de um modelo maior. Veio de parar de jogar fora o trecho mais informativo de cada texto.
+- **Truncagem faz parte do modelo.** Ela precisa estar versionada, testada e igual no treino e na inferência.
+- **Desconfie de métricas boas demais.** Treinar com o campo errado daria um número alto e um modelo inútil.
+
+O modelo foi treinado com decisões de um único tribunal estadual e serve para pesquisa e triagem, não para substituir análise jurídica. Os detalhes, a matriz de confusão e o script de treino reprodutível estão no [model card](https://huggingface.co/juliodourado1/bertimbau-legal-judgment-ptbr).

@@ -41,7 +41,7 @@ export function BlogPreviewClient({ posts }: BlogPreviewClientProps) {
           <FadeIn>
             <div className="rounded-3xl border border-dashed border-border bg-surface-solid p-16 text-center">
               <p className="text-muted">
-                Em breve publicações sobre Databricks, AWS e Engenharia de Dados.
+                Em breve publicações sobre IA, NLP e Engenharia de Dados.
               </p>
             </div>
           </FadeIn>

@@ -141,7 +141,7 @@ export type Experience = {
 export const experiences: Experience[] = [
   {
     company: "Stefanini Group",
-    role: "Engenheiro de Dados Pleno",
+    role: "Engenheiro de Dados",
     period: "fev 2026 — mai 2026",
     location: "Projeto Sescoop/OCB",
     description:
@@ -159,7 +159,7 @@ export const experiences: Experience[] = [
   },
   {
     company: "BrBPO",
-    role: "Analista de BI Pleno",
+    role: "Analista de BI",
     period: "jul 2024 — dez 2024",
     location: "Brasília, DF",
     description:

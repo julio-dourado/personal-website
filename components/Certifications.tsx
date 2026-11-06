@@ -21,8 +21,7 @@ export function Certifications() {
             Certificações
           </h2>
           <p className="mx-auto mt-5 max-w-2xl text-muted text-lg">
-            Certificações e capacitações que validam minha trajetória técnica —
-            e as metas que estou perseguindo agora.
+            Certificações e capacitações que validam minha trajetória técnica.
           </p>
         </FadeIn>
 

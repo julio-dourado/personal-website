@@ -105,27 +105,6 @@ export const certifications: Certification[] = [
     status: "done",
     category: "Fundamentos",
   },
-  // Próximas metas
-  {
-    title: "Databricks Certified Data Engineer Associate",
-    issuer: "Databricks",
-    status: "goal",
-    category: "Dados & Cloud",
-    featured: true,
-  },
-  {
-    title: "AWS Certified Data Engineer – Associate",
-    issuer: "Amazon Web Services",
-    status: "goal",
-    category: "Dados & Cloud",
-    featured: true,
-  },
-  {
-    title: "AWS Certified Solutions Architect – Associate",
-    issuer: "Amazon Web Services",
-    status: "goal",
-    category: "Dados & Cloud",
-  },
 ];
 
 export type Experience = {

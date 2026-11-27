@@ -30,14 +30,14 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="mx-auto mt-8 max-w-2xl text-lg text-muted sm:text-xl leading-relaxed"
         >
-          Engenheiro de Software: construo o software que coloca{" "}
-          <span className="text-foreground font-medium">modelos de IA</span> em
-          produção, de{" "}
-          <span className="text-foreground font-medium">NLP</span> e{" "}
-          <span className="text-foreground font-medium">Hugging Face</span> a
-          APIs e pipelines de dados com{" "}
-          <span className="text-foreground font-medium">Python</span> e{" "}
-          <span className="text-foreground font-medium">AWS</span>.
+          Analista de BI e dados: transformo dados em{" "}
+          <span className="text-foreground font-medium">indicadores</span> e{" "}
+          <span className="text-foreground font-medium">dashboards</span> para
+          decisão, com{" "}
+          <span className="text-foreground font-medium">Power BI</span>,{" "}
+          <span className="text-foreground font-medium">SQL</span>,{" "}
+          <span className="text-foreground font-medium">Python</span> e IA
+          aplicada.
         </motion.p>
 
         <motion.div

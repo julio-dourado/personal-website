@@ -13,6 +13,7 @@ import {
   Bot,
   BrainCircuit,
   Scale,
+  BarChart3,
 } from "lucide-react";
 import { FadeIn, StaggerContainer, StaggerItem } from "./FadeIn";
 import { projects } from "@/lib/data";
@@ -26,6 +27,7 @@ const iconMap: Record<string, React.ReactNode> = {
   rpa: <Bot className="h-7 w-7" />,
   ai: <Scale className="h-7 w-7" />,
   model: <BrainCircuit className="h-7 w-7" />,
+  bi: <BarChart3 className="h-7 w-7" />,
 };
 
 export function Projects() {

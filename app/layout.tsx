@@ -21,11 +21,13 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
-  title: "Julio Cesar Almeida Dourado | Software & AI Engineer",
+  title: "Julio Cesar Almeida Dourado | Analista de BI & Dados",
   description:
-    "Portfólio de Julio Cesar Almeida Dourado, Engenheiro de Software focado em IA: modelos de NLP, Hugging Face, APIs de inferência, MLOps e pipelines de dados na AWS.",
+    "Portfólio de Julio Cesar Almeida Dourado, Analista de BI e Dados: dashboards e indicadores de desempenho em Power BI, SQL, Excel, Python, automação e IA aplicada.",
   keywords: [
-    "AI Engineer",
+    "Analista de BI",
+    "Business Intelligence",
+    "Power BI",
     "Engenharia de Software",
     "NLP",
     "Hugging Face",
@@ -41,9 +43,9 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Julio Cesar Almeida Dourado" }],
   openGraph: {
-    title: "Julio Cesar Almeida Dourado | Software & AI Engineer",
+    title: "Julio Cesar Almeida Dourado | Analista de BI & Dados",
     description:
-      "Engenheiro de Software focado em IA: NLP, Hugging Face, MLOps e pipelines de dados na AWS.",
+      "Analista de BI e Dados: Power BI, SQL, Excel, Python, automação e IA aplicada.",
     url: "https://juliodourado.com.br",
     siteName: "Julio Cesar Almeida Dourado",
     locale: "pt_BR",
@@ -51,9 +53,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Julio Cesar Almeida Dourado | Software & AI Engineer",
+    title: "Julio Cesar Almeida Dourado | Analista de BI & Dados",
     description:
-      "Engenheiro de Software focado em IA: NLP, Hugging Face, MLOps e pipelines de dados na AWS.",
+      "Analista de BI e Dados: Power BI, SQL, Excel, Python, automação e IA aplicada.",
   },
   robots: "index, follow",
 };
@@ -77,7 +79,7 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Person",
               name: "Julio Cesar Almeida Dourado",
-              jobTitle: "Engenheiro de Software (IA & Dados)",
+              jobTitle: "Analista de BI & Dados",
               url: "https://juliodourado.com.br",
               email: "mailto:juliodourado419@gmail.com",
               address: {
@@ -87,6 +89,9 @@ export default function RootLayout({
                 addressCountry: "BR",
               },
               knowsAbout: [
+                "Business Intelligence",
+                "Power BI",
+                "Excel",
                 "Inteligência Artificial",
                 "Processamento de Linguagem Natural",
                 "Hugging Face",

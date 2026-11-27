@@ -1,8 +1,8 @@
 export const siteConfig = {
   name: "Julio Cesar Almeida Dourado",
   fullName: "Julio Cesar Almeida Dourado",
-  role: "Engenheiro de Software · IA & Dados",
-  headline: "Software & AI Engineer | NLP | Hugging Face | Python | AWS",
+  role: "Analista de BI & Dados · IA aplicada",
+  headline: "Analista de BI & Dados | Power BI · SQL · Excel · Python | IA aplicada",
   email: "juliodourado419@gmail.com",
   linkedin: "https://www.linkedin.com/in/juliodourado",
   github: "https://github.com/julio-dourado",
@@ -12,9 +12,10 @@ export const siteConfig = {
   cv: "/cv/Julio-Cesar-Almeida-Dourado.pdf",
   location: "Brasília, Distrito Federal, Brasil",
   summary:
-    "Estudante de Engenharia de Software na UnB (FCTE). Construo o software ao redor de modelos de IA: APIs de inferência, coleta de feedback humano e observabilidade de modelos de linguagem. Comecei isso no AI.lab UnB, no Projeto Sabiá com o Tribunal Superior do Trabalho. Trago também a base de Engenharia de Dados na AWS (Spark, Airflow, Lakehouse) da Stefanini e da BrBPO, porque modelo bom depende de dado confiável. Publico modelos e código abertos no Hugging Face e no GitHub.",
+
+    "Analista de BI e dados, formando em Engenharia de Software na UnB. Construo dashboards, indicadores e análises de performance com Power BI, Excel e SQL para apoiar decisões. Na BrBPO, mantive painéis de indicadores de desempenho para mais de 20 contratos de atendimento, incluindo o Banco do Brasil, e entreguei dados validados para mais de 50 stakeholders. Trago a base de engenharia de dados (Python, Airflow e AWS na Stefanini) e uso automação (Power Automate, RPA) e IA generativa no dia a dia para ganhar velocidade sem perder a confiança nos números.",
   summaryShort:
-    "Software para IA em produção: modelos de NLP, APIs de inferência, human-in-the-loop e os pipelines de dados que sustentam tudo isso.",
+    "BI e dados para decisão: dashboards, indicadores de desempenho e os pipelines que garantem números confiáveis.",
 };
 
 export type Skill = {
@@ -24,6 +25,14 @@ export type Skill = {
 };
 
 export const skills: Skill[] = [
+  // BI & Análise
+  { name: "Power BI", category: "BI & Análise", icon: "powerbi" },
+  { name: "DAX", category: "BI & Análise" },
+  { name: "Excel", category: "BI & Análise" },
+  { name: "SQL", category: "BI & Análise" },
+  { name: "Power Automate", category: "BI & Análise" },
+  { name: "Modelagem dimensional", category: "BI & Análise" },
+  { name: "KPIs e dashboards", category: "BI & Análise" },
   // IA & NLP
   { name: "PyTorch", category: "IA & NLP", icon: "pytorch" },
   { name: "Hugging Face", category: "IA & NLP", icon: "huggingface" },
@@ -43,12 +52,10 @@ export const skills: Skill[] = [
   { name: "Azure", category: "Cloud & Big Data", icon: "microsoftazure" },
   // Engenharia de Dados
   { name: "Python", category: "Engenharia de Dados", icon: "python" },
-  { name: "SQL", category: "Engenharia de Dados" },
   { name: "Apache Airflow", category: "Engenharia de Dados", icon: "apacheairflow" },
   { name: "PostgreSQL", category: "Engenharia de Dados", icon: "postgresql" },
   { name: "MySQL", category: "Engenharia de Dados", icon: "mysql" },
   { name: "Pandas", category: "Engenharia de Dados", icon: "pandas" },
-  { name: "Power BI", category: "Engenharia de Dados", icon: "powerbi" },
   // Engenharia de Software & DevOps
   { name: "TypeScript", category: "Engenharia de Software & DevOps", icon: "typescript" },
   { name: "React", category: "Engenharia de Software & DevOps", icon: "react" },
@@ -133,8 +140,8 @@ export const experiences: Experience[] = [
     period: "jul 2024 — jan 2026",
     location: "Brasília, DF",
     description:
-      "Desenvolvimento de pipelines de dados, otimização de consultas SQL e automações com RPA (Robotic Process Automation), garantindo fluxos de dados confiáveis para as áreas de negócio.",
-    tags: ["Pipelines", "SQL", "RPA", "Python"],
+      "Modelos e pipelines em SQL e Python num Data Lakehouse de larga escala, com catálogo e documentação, entregando dados validados para o self-service de mais de 50 stakeholders. Automatizei rotinas operacionais com RPA e Power Automate e otimizei consultas, reduzindo trabalho manual.",
+    tags: ["SQL", "Python", "Lakehouse", "Power Automate", "RPA"],
   },
   {
     company: "BrBPO",
@@ -142,8 +149,8 @@ export const experiences: Experience[] = [
     period: "jul 2024 — dez 2024",
     location: "Brasília, DF",
     description:
-      "Tratamento de grandes volumes de dados e construção de dashboards interativos em Power BI amplamente utilizados para embasar decisões estratégicas da companhia.",
-    tags: ["Power BI", "SQL", "ETL", "Dashboards"],
+      "Construí e mantive painéis de indicadores de desempenho em Power BI para mais de 20 contratos de atendimento (incluindo o Banco do Brasil), com SLAs e métricas operacionais de call center. Produzi análises e relatórios em Excel e consultas SQL para extrair, tratar e conciliar grandes bases, aplicando as métricas e regras de negócio de cada operação.",
+    tags: ["Power BI", "Excel", "SQL", "SLAs", "Dashboards"],
   },
   {
     company: "AI.lab UnB",
@@ -178,7 +185,7 @@ export const education = [
   {
     institution: "Universidade de Brasília (UnB) — FCTE",
     degree: "Bacharelado em Engenharia de Software",
-    period: "2021 — jul/2027 (previsto)",
+    period: "2021 — 2026 (formando)",
   },
 ];
 
@@ -208,9 +215,9 @@ export const journey = [
     icon: "cloud",
   },
   {
-    title: "IA em produção",
+    title: "BI com IA aplicada",
     description:
-      "Hoje foco em levar modelos de IA para produção: fine-tuning de modelos de linguagem, APIs de inferência, feedback humano e monitoramento de drift, juntando o que aprendi no AI.lab com a base de dados.",
+      "Hoje junto BI e engenharia de dados com IA: dashboards e indicadores confiáveis, automação de rotinas e IA generativa para acelerar análises. No AI.lab e em projetos próprios, também levei modelos de linguagem para produção.",
     icon: "brain",
   },
 ];
@@ -222,10 +229,18 @@ export type Project = {
   repoUrl?: string;
   demoUrl?: string;
   image?: string;
-  icon: "finops" | "lakehouse" | "airflow" | "api" | "web" | "rpa" | "ai" | "model";
+  icon: "finops" | "lakehouse" | "airflow" | "api" | "web" | "rpa" | "ai" | "model" | "bi";
 };
 
 export const projects: Project[] = [
+  {
+    title: "Amazon Sales: ETL e Dashboard de Performance",
+    description:
+      "Dashboard em Power BI com medidas em DAX e três visões (Market Pulse, Pricing Strategy e Opportunity Radar) sobre cerca de 16 mil produtos. Pipeline com arquitetura medalhão em Python e PostgreSQL, camada gold em star schema e consultas analíticas em SQL com CTEs e window functions. Projeto em grupo de Banco de Dados 2 (UnB).",
+    tags: ["Power BI", "DAX", "SQL", "Star schema", "Python"],
+    repoUrl: "https://github.com/julio-dourado/amazon-sales-etl-vizualization",
+    icon: "bi",
+  },
   {
     title: "Legal NLP Feedback Engine",
     description:
